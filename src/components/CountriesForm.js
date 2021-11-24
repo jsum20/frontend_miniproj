@@ -2,7 +2,7 @@
 
 const CountriesForm = () => {
 
-    const [newCountry, setNewCountry] = useState("");
+    //const [newCountry, setNewCountry] = useState("");
 
     const handleCountryChange = (event) => {
         setCountry(event.target.value)
@@ -12,10 +12,10 @@ const CountriesForm = () => {
         event.preventDefault();
 
         const newCountry = {
-            countryName: newCountry,
+            name: newCountry,
         }
 
-        setCountryName("");
+        setCountry("");
 
     }
 
