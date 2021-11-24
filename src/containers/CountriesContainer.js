@@ -5,22 +5,25 @@ import CountriesList from "../components/CountriesList";
 
 const CountriesContainer = () => {
 
-    const [country, setCountry] = useState("");
+    const [countries, setCountries] = useState(null);
 
-    useEffect(() => {
-        fetch(`https://restcountries.com/v3.1/name/${country}`)
+    const loadCountryData = () =>  {
+        fetch(`https://restcountries.com/v3.1/all`)
             .then(response => response.json())
-            .then(data => setCountry(data));
-    }, []);
+            .then(data => setCountries(data));
+    }
 
-
-
+    useEffect(loadCountryData, []);
+    
     return(
-        <div>
+        countries ?
+        <>
             <CountriesForm />
             <hr />
-            <CountriesList country={country} />
-        </div>
+            <CountriesList countries={countries} />
+        </>
+        :
+        <p>Loading Country...</p>
     )
 
 }

@@ -1,8 +1,8 @@
+import { useState } from "react";
 
+const CountriesForm = ({onCountrySubmission}) => {
 
-const CountriesForm = () => {
-
-    //const [newCountry, setNewCountry] = useState("");
+    const [newCountry, setCountry] = useState("");
 
     const handleCountryChange = (event) => {
         setCountry(event.target.value)
@@ -15,7 +15,7 @@ const CountriesForm = () => {
             name: newCountry,
         }
 
-        setCountry("");
+        onCountrySubmission(newCountry);
 
     }
 
@@ -30,7 +30,9 @@ const CountriesForm = () => {
            <div className="formElement">
               <input type="submit" value="Add Country"/>
            </div>
+
         </form>
+
         </>
     )
 }
