@@ -1,7 +1,7 @@
 const CountryButton = ({onClick}) => {
 
     return(
-        <button onClick={incrementCountryCounter}>Visited</button>
+        <button className="visitedButton" onClick={onClick}>Visited?</button>
     )
 }
 

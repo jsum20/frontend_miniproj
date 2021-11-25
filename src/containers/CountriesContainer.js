@@ -27,6 +27,7 @@ const CountriesContainer = () => {
         <>
             <CountryButton onClick={incrementCountryCounter} />
             <CountriesForm />
+            <p>How many countries have you visited? {CurrentCountry}</p>
             <hr />
             <CountriesList countries={countries} />
             
