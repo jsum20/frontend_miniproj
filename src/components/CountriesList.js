@@ -1,10 +1,12 @@
 import Country from "./Country";
 
-const CountriesList = ({countries, onClick, update})=> {
+const CountriesList = ({countries, onClick, update, onVisit})=> {
 
-    const countryComponents = countries.map((country) => 
-            <Country country={country} key={country.name.common} onClick={onClick} update={update} />
-         )
+    const countryComponents = (countries.map((country) => 
+            <Country country={country} key={country.name.common} onClick={onClick} onVisit={onVisit} />
+         ))
+
+         //.sort((a, b) => a.name.common.localeCompare(b.name.common))
 
     return(
         <div className="country-list">

@@ -2,13 +2,10 @@ import React from "react";
 import { useState } from "react";
 import CountryButton from "./CountryButton";
 
-const Country = ({country, onClick}) => {
+const Country = ({country, onClick, onVisit}) => {
 
-    const [visited,setVisited] = useState(false);
+    //const [visited,setVisited] = useState(false);
 
-    const updateVisited = () => {
-        setVisited(visited);
-    }
 
     return(
         <div className={country.visited ? "countryVisited" : "countryBox"} >
@@ -18,6 +15,8 @@ const Country = ({country, onClick}) => {
             <p>Continent: {country.region}</p>
             <p>Population: {country.population}</p>
             <CountryButton onClick={onClick}/>
+            <input type="checkbox" onVisit={()=>{onVisit(country.ccn3)}}></input>
+           
         </div>
     )
     
