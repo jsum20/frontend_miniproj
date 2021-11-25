@@ -3,7 +3,6 @@ import CountriesForm from "../components/CountriesForm";
 import CountriesList from "../components/CountriesList";
 import CountryButton from "../components/CountryButton";
 
-
 const CountriesContainer = () => {
 
     const [currentCountry, setCurrentCountry] = useState(1);
@@ -21,17 +20,22 @@ const CountriesContainer = () => {
         setCurrentCountry(currentCountry + 1);
     }
 
+    const [visitedCountry, setVisitedCountry] = useState([]);
+
+    const updateVisitedCountry = (id) => {
+        console.log("updating task " + id);
+        const taskToUpdate = countries.find(country => country.id === id);
+        setVisitedCountry([...visitedCountry])
+    }
+
 
     return(
         countries ?
-        <>
-            <CountryButton onClick={incrementCountryCounter} />
+        <>  
             <CountriesForm />
-            <p>How many countries have you visited? {CurrentCountry}</p>
+            <p>How many countries have you visited? {currentCountry}</p>
             <hr />
-            <CountriesList countries={countries} />
-            
-
+            <CountriesList countries={countries} onClick={incrementCountryCounter} updateVisitedCountry={updateVisitedCountry}/>
         </>
         :
         <p>Loading Country...</p>

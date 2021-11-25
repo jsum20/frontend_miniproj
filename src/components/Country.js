@@ -1,7 +1,7 @@
 import React from "react";
+import CountryButton from "./CountryButton";
 
-const Country = ({country, incrementCountryCounter}) => {
-
+const Country = ({country, onClick}) => {
 
     return(
         <div className="countryBox">
@@ -10,7 +10,7 @@ const Country = ({country, incrementCountryCounter}) => {
             <p>Capital City: {country.capital}</p>
             <p>Continent: {country.region}</p>
             <p>Population: {country.population}</p>
-            <button onClick={incrementCountryCounter} className="visitedButton">Visited?</button>
+            <CountryButton onClick={onClick} />
         </div>
     )
     
